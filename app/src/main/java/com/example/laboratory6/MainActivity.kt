@@ -3,6 +3,7 @@ package com.example.laboratory6
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -23,6 +24,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.laboratory6.ui.theme.Laboratory6Theme
@@ -50,7 +52,10 @@ fun Login(name: String, modifier: Modifier = Modifier) {
         mutableStateOf("")
     }
 
-    Column(modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally) {
+    Column(modifier = Modifier.fillMaxSize()
+        .background(brush = Brush.linearGradient(listOf(Color(0xFFfddae0)))),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally) {
         Text("Username", modifier = Modifier.padding(start = 25.dp))
         BasicTextField(
             value = username,
@@ -76,4 +81,10 @@ fun Login(name: String, modifier: Modifier = Modifier) {
             Text(text = "Login")
         }
     }
+}
+
+@Preview
+@Composable
+fun LoginPreview() {
+    Login("Ejemplo de Usuario")
 }
